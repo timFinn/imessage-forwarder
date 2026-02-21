@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iMessage Forwarder</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+    <!-- Auth Screen -->
+    <div id="auth-screen" class="auth-screen">
+        <div class="auth-card">
+            <h1>iMessage Forwarder</h1>
+            <p>Enter your authentication token to connect.</p>
+            <form id="auth-form">
+                <input type="password" id="auth-token" placeholder="Authentication token" autocomplete="off" required>
+                <button type="submit">Connect</button>
+            </form>
+            <p id="auth-error" class="error" hidden></p>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="app" class="app" hidden>
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h2>Messages</h2>
+                <button id="new-message-btn" class="icon-btn" title="New Message">+</button>
+            </div>
+            <div id="conversation-list" class="conversation-list"></div>
+        </aside>
+
+        <main id="main-content" class="main-content">
+            <div id="no-chat-selected" class="empty-state">
+                <p>Select a conversation to start messaging</p>
+            </div>
+
+            <div id="chat-view" class="chat-view" hidden>
+                <header id="chat-header" class="chat-header">
+                    <button id="back-btn" class="icon-btn back-btn">&#8249;</button>
+                    <div class="chat-header-info">
+                        <h3 id="chat-title"></h3>
+                        <span id="chat-subtitle" class="chat-subtitle"></span>
+                    </div>
+                </header>
+
+                <div id="message-container" class="message-container">
+                    <button id="load-more-btn" class="load-more-btn" hidden>Load older messages</button>
+                    <div id="message-list" class="message-list"></div>
+                </div>
+
+                <form id="send-form" class="send-form">
+                    <input type="text" id="message-input" placeholder="iMessage" autocomplete="off">
+                    <button type="submit" id="send-btn">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M3 10L17 3L10 17L9 11L3 10Z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+
+            <!-- New Message Dialog -->
+            <div id="new-message-view" class="chat-view" hidden>
+                <header class="chat-header">
+                    <button id="new-msg-back-btn" class="icon-btn back-btn">&#8249;</button>
+                    <div class="chat-header-info">
+                        <h3>New Message</h3>
+                    </div>
+                </header>
+                <div class="new-message-form">
+                    <div class="new-message-to">
+                        <label>To:</label>
+                        <input type="text" id="new-msg-address" placeholder="Phone number or email">
+                    </div>
+                </div>
+                <form id="new-send-form" class="send-form">
+                    <input type="text" id="new-message-input" placeholder="iMessage" autocomplete="off">
+                    <button type="submit" id="new-send-btn">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M3 10L17 3L10 17L9 11L3 10Z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/websocket.js"></script>
+    <script src="/js/conversations.js"></script>
+    <script src="/js/messages.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
