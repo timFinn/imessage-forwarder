@@ -6,3 +6,6 @@ Package.resolved
 *.xcworkspace/
 xcuserdata/
 DerivedData/
+
+# Claude Code local settings
+.claude/settings.local.json
