@@ -8,6 +8,11 @@ iMessage Forwarding Server — a macOS server that reads messages from the nativ
 
 **Tech stack**: Swift 5.9+, Vapor 4 (HTTP/WebSocket), GRDB.swift (SQLite), macOS 14 Sonoma+ minimum.
 
+## Development Environment
+
+- **Swift is not installed on this Linux dev box** — none of the build/test commands below run here. Development on this machine is source-editing only; build, test, and run happen on the target Mac (which also needs Full Disk Access for `chat.db` and Automation permission for Messages.app).
+- This is the **only GitHub-hosted repo** (everything else lives on Forgejo at `git.timfinn.dev`) — use `gh` for PR/issue work, not `tea`.
+
 ## Build & Development Commands
 
 ```bash
